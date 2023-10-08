@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--  Embedded styles -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #my_paragraph {
+            color: violet;
+        }
+        p {
+            color: blue; /* !important; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        span {
+            color: red;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Smooch Sans', sans-serif;
+        }
+        div > p {
+            color: #66FF99;
+        }
+
+        body {
+            background-color: beige;
+        }
+        #my-div1 {
+            background-color: rgba(250,128,114,1);
+            height: 100px;
+            width: 100px;
+        }
+        #my-div2 {
+            background-color: rgba(250,128,114,0.2);
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            border: 5px dotted;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        #my-div3 {
+            background-color: rgba(250,128,114,0.2);
+            height: 20vh;
+            width: 100px;
+            border: 5px solid;
+        }
+        div.sticky {
+          position: sticky;
+          top: 0;
+          padding: 5px;
+          background-color: #cae8ca;
+          border: 2px solid #4CAF50;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Smooch+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sticky">I am sticky!</div>
+    <!-- Inline styling -->
+    <p style="color: red">Styled with inline styling</p>
+    <!-- Inheritance: span inherits from p, until direct span rule is defined    -->
+    <p>Styled with <span>embedded</span> styling</p>
+    <p id="my_paragraph">Styled with external stylesheet</p>
+
+    <h3>Some random text</h3>
+
+    <div style="display: inline-block; width: 50px">
+        <p>div paragraph 1</p>
+        <p>div paragraph 2</p>
+        <p>div paragraph 3</p>
+    </div>
+    <section>
+        <p style="text-align: center; font-style: italic;">section paragraph 1</p>
+        <p>section paragraph 2</p>
+        <p style="float: right">section paragraph 3</p>
+    </section>
+
+    <div id="my-div1"></div>
+    <div id="my-div2"></div>
+    <div id="my-div3"></div>
+</body>
+</html>
