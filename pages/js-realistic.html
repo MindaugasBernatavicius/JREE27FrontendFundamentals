@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            color: red;
+            margin: 0;
+            font-size: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" style="width: 25rem">
+            <div class="card-header">Register</div>
+            <div class="card-body">
+                <form class="userForm" method="POST">
+                    <div class="form-group mb-3">
+                        <label for="userid">User Identifier Code (R-###):</label>
+                        <input class="form-control" id="userid" type="text" name="userid" onblur="validateUserId();" />
+                        <!-- required is eliminated, because validateBeforeSending prevents sending after navigation to the page -->
+                        <p id="uIdWarn" style="display: none">User ID does not match the format (R-###)!</p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Password (one of there required: !, @, `):</label>
+                        <input class="form-control password" type="password" oninput="validatePassword();"
+                            name="password" />
+                        <p id="passWarn" style="display: none"></p>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Repeated Password:</label>
+                        <input class="form-control password" type="password" oninput="validateRepeatedPassword();"
+                            name="repeatedPassword" />
+                        <p id="passRepeatWarn" style="display: none">Passwords do not match!</p>
+                    </div>
+
+                    <button id="registerBtn" class="btn btn-warning" type="submit"
+                        onclick="validateBeforeSending()">Create New User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateUserId() {
+            let isUserIdValid = false;
+            let uidEl = document.getElementById("userid");
+            if (!uidEl.value.match(/R-\d{3}$/g)) {
+                document.getElementById("uIdWarn").style.display = "";
+            } else {
+                document.getElementById("uIdWarn").style.display = "none";
+                isUserIdValid = true;
+            }
+            return isUserIdValid;
+        }
+
+        function validatePassword() {
+            var isPasswordValid = false;
+            let upassEl = document.getElementsByClassName("password")[0];
+            if (upassEl.value.length <= 6) {
+                document.getElementById("passWarn").textContent = "Password has to be longer than 6 symbols!";
+                document.getElementById("passWarn").style.display = "";
+            } else if (!(upassEl.value.includes("@") || upassEl.value.includes("!") || upassEl.value.includes("`"))) {
+                document.getElementById("passWarn").style.display = "none";
+                document.getElementById("passWarn").textContent = "Password should include at least one of: !, @, `";
+                document.getElementById("passWarn").style.display = "";
+            } else {
+                document.getElementById("passWarn").style.display = "none";
+                isPasswordValid = true;
+            }
+            return isPasswordValid;
+        }
+
+        function validateRepeatedPassword() {
+            let isRepeatedPasswordValid = false;
+            let upassEl1 = document.getElementsByClassName("password")[0];
+            let upassEl2 = document.getElementsByClassName("password")[1];
+            if (upassEl1.value !== upassEl2.value) {
+                document.getElementById("passRepeatWarn").style.display = "";
+            } else {
+                document.getElementById("passRepeatWarn").style.display = "none";
+                isRepeatedPasswordValid = true;
+            }
+            return isRepeatedPasswordValid;
+        }
+
+        function validateBeforeSending() {
+            if (!(validateUserId() && validatePassword() && validateRepeatedPassword())) {
+                event.preventDefault();
+            } else {
+                var userForm = document.getElementsByTagName("form")[0];
+                var formParent = userForm.parentNode;
+                formParent.removeChild(userForm);
+                formParent.innerHTML = "<p>Pretend that is was successfully sent 😊😊😊 !</p>";
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

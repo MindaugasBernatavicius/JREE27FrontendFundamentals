@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>My awesome page</title>
@@ -7,18 +8,21 @@
         body {
             margin: 0;
         }
+
         header {
-          position: sticky;
-          top: 0px;
-          padding: 5px;
-          background-color: #cae8ca;
-          border: 2px solid #4CAF50;
+            position: sticky;
+            top: 0px;
+            padding: 5px;
+            background-color: #cae8ca;
+            border: 2px solid #4CAF50;
         }
+
         a {
             text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -27,6 +31,9 @@
             <a href="pages/css-basics.html">CSS Basics</a>
             <a href="pages/flexbox-example.html">Flexbox Basics</a>
             <a href="pages/bootstrap-example.html">Bootstrap Basics</a>
+            <a href="pages/js-basics.html">Javascript Basics</a>
+            <a href="pages/js-realistic.html">More realistic JS example</a>
+            <a href="pages/jquery.html">Jquery example</a>
         </nav>
     </header>
     <main>
@@ -46,8 +53,8 @@
                 Go to google
             </a>
         </div>
-    <!--    <img src="https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg" alt="Text description of the image">-->
-        <img src="2023-10-07 10_59_32-.png" height="355" width="480"/>
+        <!--    <img src="https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg" alt="Text description of the image">-->
+        <img src="2023-10-07 10_59_32-.png" height="355" width="480" />
 
         <ul>
             <li>element 1</li>
@@ -63,7 +70,10 @@
 
         <hr>
         <table border="1">
-            <tr><td>ID</td><td colspan="2">Fullname</td><td>Age</td>
+            <tr>
+                <td>ID</td>
+                <td colspan="2">Fullname</td>
+                <td>Age</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -81,41 +91,43 @@
 
         <hr>
         <div>
-        <h3>Please fill the following information</h3>
-        <form action="/register" method="POST">
-            <label>Name:</label><br>
-            <input type="text" /><br>
+            <h3>Please fill the following information</h3>
+            <form action="/register" method="POST">
+                <label>Name:</label><br>
+                <input type="text" /><br>
 
-            <label>Age:</label><br>
-            <input type="number" /><br>
+                <label>Age:</label><br>
+                <input type="number" /><br>
 
-            <label>Password:</label><br>
-            <input type="password" /><br>
-            <br>
+                <label>Password:</label><br>
+                <input type="password" /><br>
+                <br>
 
-            <select name="city">
-                <option value="value1">Warsaw</option>
-                <option value="value2">London</option>
-                <option value="value3">Paris</option>
-            </select>
-            <br>
-            <br>
+                <select name="city">
+                    <option value="value1">Warsaw</option>
+                    <option value="value2">London</option>
+                    <option value="value3">Paris</option>
+                </select>
+                <br>
+                <br>
 
-            <input type="file" name="fileUpload" />
-            <br>
-            <br>
+                <input type="file" name="fileUpload" />
+                <br>
+                <br>
 
-            <input type="submit" value="Send"/>
-        </form>
+                <input type="submit" value="Send" />
+            </form>
         </div>
 
         <hr>
         <span style="width: 100%">This is span1</span><span>This is span1</span>
-        <div style="width: 50%">This is div1</div><div style="width: 50%">This is div2</div>
+        <div style="width: 50%">This is div1</div>
+        <div style="width: 50%">This is div2</div>
         <span>This is span1</span><span>This is span1</span>
         <hr>
 
-    <!--    <script>alert("Hi!");</script>-->
+        <!--    <script>alert("Hi!");</script>-->
     </main>
 </body>
+
 </html>
